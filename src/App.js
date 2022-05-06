@@ -3,6 +3,7 @@ import NavBar from './components/NavBar/NabBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import cart from './assets/img/product.png'
 
+
 function App() {
   return (
     <div className="App">
