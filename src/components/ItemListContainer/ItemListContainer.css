@@ -1,74 +1,10 @@
-.itemContainer{
-    width: calc(100% / 6);
-    padding: 20px 0;
-    box-shadow: 5px 5px 10px black;
-    border-radius: 20px;
-    background-color: white;
-    transform-style: preserve-3d;
-    transition: 0.3s;
-}
-
-.itemCount{
-    width: 80%;
-}
-
-.itemContainer > div{
-    backface-visibility: hidden;
-}
-
-h3, h4{
-    margin: 5px 0;
-}
-
-img{
-    backface-visibility: hidden;
-    width: 160px;
-}
-
-.itemContainer:hover{
-    box-shadow: 2px 2px 10px black;
-    /* transform: rotateY(180deg); */
-    transform: scale(1.05);
-    transition: 0.3s;
-}
-
-.stock{
-    margin: 0;
-    font-size: 15px;
-}
-
-/* .buttonContainer{
-    width: 100%;
-    height: 100%;
-    position: absolute;
+.itemListContainer{
+    margin-top: 55px;
+    background-color: #f8f7f5;
     display: flex;
-    justify-content: center;
-    align-content: center;
 }
 
-.buttonContainer button{
-    transform: rotateY(180deg);
-    backface-visibility: hidden;
-    height: 35px;
-    width: 150px;
-    margin-top: calc(50% - 35px);
-    padding: 0 12px;
-    transition: 0.3s;
-    background-color: #1976D2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
+.itemListGeneralContainer{
+    width: 100%;
+    z-index: 10;
 }
-
-.itemContainer:hover button{
-    position: absolute;
-    transform: rotateY(-0deg);
-    transition: 0.3s;
-}
-
-.itemContainer:hover button:hover{
-    transform: scale(1.05);
-    cursor: pointer;
-    box-shadow: 3px 3px 5px #1976D2;
-} */
