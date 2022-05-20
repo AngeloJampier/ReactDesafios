@@ -1,34 +1,30 @@
 import './ItemListContainer.css'
 import React, {useState, useEffect} from 'react'
 import ItemList from '../ItemList/ItemList'
-import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
-
+import Filter from '../Filter/Filter'
 const ItemListContainer = (props) => {
   const [productList, setProductList] = useState(null)
 
   useEffect(() => {
-    setTimeout(()=>{
-      new Promise((eject, reject) =>{
-        fetch('https://sheet2api.com/v1/V0IMeoa1QYWz/api-desafios-react')
-        .then(res => res.json())
-        .then(res => setProductList(res))
-      })
-    },2000)
+    fetch('https://sheet.best/api/sheets/68763914-9c61-406f-9b36-7f12e8cd18cf')
+    .then(res => res.json())
+    .then(res => {
+      props.category == null ? setProductList(res) : setProductList(res.filter(e => e.categoria === props.category))
+    })
 
     return () => {
     }
-  }, [])
+  }, [props.category])
 
   return (
     <>
       <div className='itemListContainer'>
+      <Filter></Filter>
         <div className='itemListGeneralContainer'>
           <h2>Lista de productos</h2>
           <ItemList productList={productList} />
         </div>
-        <ItemDetailContainer
-        productList={productList}
-        />
+        
       </div>
     </>
   )

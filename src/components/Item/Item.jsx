@@ -1,5 +1,7 @@
 import './Item.css'
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { Button } from '@mui/material'
 
 const priceFormat = price =>{
     return price.length > 3 && !price.includes('.') ? price.slice(0,1) + "," + price.slice(1,price.length) : price
@@ -9,9 +11,6 @@ const Item = (props) => {
   return (
     <>
         <div className='item'>
-            {/* <div className='buttonContainer'>
-                <button>Add to cart</button>
-            </div> */}
             <div className='product'>
                 <img src={props.image} alt="" />
                 <div>
@@ -20,8 +19,7 @@ const Item = (props) => {
                     <p className='stock'>(Stock: {props.stock})</p>
                     <p>{props.description}</p>
                 </div>
-                {/* <ItemCount className = 'itemCount' amount = {props.stock}></ItemCount> */}
-                <button className='detailButton'>Detalles</button>
+                <Button component={Link} to={'/item/'+props.id} className='detailButton'>Detalles</Button>  
             </div>
         </div>
     </>

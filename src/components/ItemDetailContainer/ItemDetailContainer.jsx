@@ -1,73 +1,37 @@
 import React, {useState, useEffect} from 'react'
+import { useParams } from 'react-router-dom'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import './ItemDetailContainer.css'
 
-let activeItemDetailContainer = {
-  position: 'fixed',
-  width: '100%',
-  height: '100%',
-  backgroundColor: 'rgba(0,0,0,0.5)',
-  zIndex: '20',
-  transition: '0.5s'
-}
 
-let itemDetail = {
-  width: (0.35 * document.querySelector('.itemListGeneralContainer')?.clientWidth) + 'px',
-  height: '100%',
-  position: 'relative',
-  marginLeft: '100%',
-  float: 'right',
-  transition: '0.5s'
-}
 
 const ItemDetailContainer = (props) => {
-  const [styleItemDetail, setStyleItemDetail] = useState(itemDetail)
-  const [randomId, setRandomId] = useState((parseInt(Math.random()*15 + 100)).toString())
-
-  window.addEventListener('click', ()=>{
-    activeItemDetailContainer = {
-      position: 'fixed',
-      width: '135%',
-      height: '100%',
-      backgroundColor: 'rgba(0,0,0,0)',
-      transition: '0.5s',
-      zIndex: '0',
-    }
-  })
-
-  document.querySelector('.itemDetailC')?.addEventListener('click', e => e.stopPropagation())
-
+  
+  const [productList, setProductList] = useState(null)
+  let {id} = useParams()
   useEffect(() => {
-    itemDetail = {
-      width: (0.35 * document.querySelector('.itemListGeneralContainer')?.clientWidth) + 'px',
-      height: '100%',
-      position: 'relative',
-      marginLeft: '100%',
-      float: 'right',
-      transition: '0.5s'
-    }
-    setStyleItemDetail(itemDetail)
+
+    fetch('https://sheet.best/api/sheets/68763914-9c61-406f-9b36-7f12e8cd18cf')
+    .then(res => res.json())
+    .then(res => setProductList(res))
     return () => {
     }
-  }, [styleItemDetail])
+  }, [])
   
   return (
-    <div className='itemDetailContainer' style={activeItemDetailContainer}>
-        {props.productList != null ? (
-          props.productList.filter(e => e.id == randomId).map(e => (
-            <ItemDetail
+    <div className='itemDetailContainer'>
+    {productList != null ? (
+      productList.filter(e => e.id === id).map(e => (
+         <ItemDetail
             key = {e.id}
-            customStyle={styleItemDetail}
             item = {e}
             />
           ))
         ):(
           <ItemDetail
-          customStyle={styleItemDetail}
           item = {null}
           />
         )}
-        
     </div>
   )
 }

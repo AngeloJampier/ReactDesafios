@@ -17,7 +17,8 @@ const ItemList = ({ productList }) => {
                         price = {element.price}
                         stock = {element.stock}
                         description = {element.description}
-                        />
+                        id = {element.id}
+                       />
                     </div>
                 ))
             ) : (

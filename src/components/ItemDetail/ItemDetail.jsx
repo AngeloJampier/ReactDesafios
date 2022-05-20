@@ -19,7 +19,7 @@ const ItemDetail = ({item, customStyle}) => {
               <p className='stock'>(Stock: { item.stock })</p>
               <p>{ item.description }</p>
           </div>
-          <ItemCount className = 'itemCount' amount = "57"></ItemCount>
+          <ItemCount className = 'itemCount' amount = { item.stock }></ItemCount>
         </div>
       ):(
         <h1>Cargando...</h1>
