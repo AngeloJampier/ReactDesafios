@@ -4,7 +4,7 @@ import Home from '../views/Home'
 import Layout from '../components/Layout'
 import FilteredProducts from '../views/FilteredProducts'
 import ProductDetail from '../views/ProductDetail'
-
+import CartView from '../views/CartView'
 const Rutas = () => {
   return (
     <>
@@ -14,6 +14,7 @@ const Rutas = () => {
                 <Route index element={<Home/>}/>
                 <Route path='/category/:category' element={<FilteredProducts/>}/>
                 <Route path='/item/:id' element={<ProductDetail/>}></Route>
+                <Route path='/cart' element={<CartView/>} />
             </Route> 
         </Routes>
     </BrowserRouter>

@@ -1,10 +1,12 @@
+import { Button } from '@mui/material'
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './ItemCount.css'
 
-const ItemCount = (props) => {
+const ItemCount = ({onAdd, amount}) => {
     let [stock, setStock] = useState(0)
 
-    const increaseAmount = () => stock < props.amount ? setStock(stock + 1) : setStock(stock)
+    const increaseAmount = () => stock < amount ? setStock(stock + 1) : setStock(stock)
     const decreaseAmount = () => stock >= 1 ? setStock(stock - 1) : setStock(stock)
 
     return (
@@ -14,7 +16,16 @@ const ItemCount = (props) => {
                 <div className='stockContainer'><span>{stock}</span></div>
                 <button className='countButton' onClick={increaseAmount}>+</button>
             </div>
-            <button className='addButton'>Add to cart</button>
+            <Button
+            onClick={() => onAdd(stock)}
+            className='addButton'
+            component={Link}
+            to={'/cart'}
+            variant='contained'
+            size='large'
+            >
+            Add to cart
+            </Button>
         </div>
     )
 }

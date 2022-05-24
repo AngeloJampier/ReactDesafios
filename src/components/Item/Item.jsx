@@ -19,7 +19,7 @@ const Item = (props) => {
                     <p className='stock'>(Stock: {props.stock})</p>
                     <p>{props.description}</p>
                 </div>
-                <Button component={Link} to={'/item/'+props.id} className='detailButton'>Detalles</Button>  
+                <Button variant='contained' component={Link} to={'/item/'+props.id} className='detailButton'>Detalles</Button>
             </div>
         </div>
     </>
