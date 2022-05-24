@@ -16,7 +16,7 @@ const ItemDetailContainer = (props) => {
   let {id} = useParams()
   useEffect(() => {
 
-    fetch('https://sheet.best/api/sheets/68763914-9c61-406f-9b36-7f12e8cd18cf')
+    fetch('https://sheet.best/api/sheets/35ceb9bc-cc56-4031-8514-e3927c7e99ae')
     .then(res => res.json())
     .then(res => setProductList(res))
     return () => {
