@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import CardWidget from '../CardWidget/CardWidget';
 import './NavBar.css'
 
-const pages = ['SoBre nosotros', 'Productos', 'Contacto'];
+const pages = [];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const NavBar = () => {

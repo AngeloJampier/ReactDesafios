@@ -2,7 +2,7 @@ import React from 'react'
 import ItemDetailContainer from '../components/ItemDetailContainer/ItemDetailContainer'
 
 const productDetailContainer = {
-    height: '100vh',
+  height: 'calc(100vh - 68px)',
     textAlign: 'center',
     backgroundColor: '#f8f7f5'
 }

@@ -1,9 +1,10 @@
 import './ItemListContainer.css'
-import React, {useState, useEffect} from 'react'
+import React, {useEffect, useContext} from 'react'
 import ItemList from '../ItemList/ItemList'
 import Filter from '../Filter/Filter'
+import { GlobalContext } from '../../context/GlobalStateContext'
 const ItemListContainer = (props) => {
-  const [productList, setProductList] = useState(null)
+  const {productList, setProductList} = useContext(GlobalContext)
 
   useEffect(() => {
     fetch('https://sheet.best/api/sheets/35ceb9bc-cc56-4031-8514-e3927c7e99ae')
@@ -11,7 +12,7 @@ const ItemListContainer = (props) => {
     .then(res => {
       props.category == null ? setProductList(res) : setProductList(res.filter(e => e.categoria === props.category))
     })
-
+    .catch(err => console.log(err))
     return () => {
     }
   }, [props.category])

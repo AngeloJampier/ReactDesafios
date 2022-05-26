@@ -1,10 +1,35 @@
 import { Button } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { GlobalContext } from '../../context/GlobalStateContext'
 import './ItemCount.css'
+const ItemCount = ({product, amount}) => {
+    const {addToCart} = useContext(GlobalContext)
 
-const ItemCount = ({onAdd, amount}) => {
-    let [stock, setStock] = useState(0)
+    const [stock, setStock] = useState(0)
+    const [cartProduct, setCartProduct] = useState({
+        id: product.id,
+        name: product.productName,
+        img: product.image,
+        price: product.price,
+        amount: stock,
+        description: product.description
+    })
+
+    useEffect(() => {
+        setCartProduct({
+            id: product.id,
+            name: product.productName,
+            img: product.image,
+            price: product.price,
+            amount: stock,
+            description: product.description
+        })
+
+      return () => {
+
+      }
+    }, [stock])
 
     const increaseAmount = () => stock < amount ? setStock(stock + 1) : setStock(stock)
     const decreaseAmount = () => stock >= 1 ? setStock(stock - 1) : setStock(stock)
@@ -17,7 +42,7 @@ const ItemCount = ({onAdd, amount}) => {
                 <button className='countButton' onClick={increaseAmount}>+</button>
             </div>
             <Button
-            onClick={() => onAdd(stock)}
+      onClick={() => addToCart(cartProduct)}
             className='addButton'
             component={Link}
             to={'/cart'}
