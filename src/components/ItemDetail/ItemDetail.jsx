@@ -10,7 +10,7 @@ const itemDetailContainer = {
 }
 
 const img = {
-  width: '40px',
+  width: '40%',
   height: 'auto'
 }
 const product = {
