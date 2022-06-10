@@ -1,5 +1,4 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
 import ItemListContainer from '../components/ItemListContainer/ItemListContainer'
 
 
@@ -10,11 +9,10 @@ const filteredProductsContainer = {
 }
 
 const FilteredProducts = (props) => {
-    let {category} = useParams()
 
   return (
     <div className="filteredProductsContainer" style={filteredProductsContainer}>
-      <ItemListContainer category = {category}/>
+     <ItemListContainer/>ñ
     </div>
   )
 }

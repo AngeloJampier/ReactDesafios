@@ -9,9 +9,9 @@ const CartView = () => {
   return (
     <>
     {cartProducts.length > 0 ? cartProducts.map((item, index) => (
-      <div>
-         <h1 style={{display: 'inline'}}  key={(index+1)}>{(index+1)}.- {item.name} | Cantidad: {item.amount} | Precio: {item.price}</h1>
-        <Button style={{margin: '20px'}} variant="outlined" startIcon={<DeleteIcon />}  onClick={() => removeItem(item.id)}>Eliminar producto</Button>
+       <div key={`container-${item.id}`}>
+       <h1 style={{display: 'inline'}}  key={item.id}>{(index+1)}.- {item.name} | Cantidad: {item.amount} | Precio: {item.price}</h1>
+       <Button  key={`button-${item.id}`} style={{margin: '20px'}} variant="outlined" startIcon={<DeleteIcon />}  onClick={() => removeItem(item.id)}>Eliminar producto</Button>
       </div>
 
     )) : <h1>El carrito esta vacío</h1>}

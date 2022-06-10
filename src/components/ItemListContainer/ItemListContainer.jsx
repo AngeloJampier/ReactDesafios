@@ -3,19 +3,29 @@ import React, {useEffect, useContext} from 'react'
 import ItemList from '../ItemList/ItemList'
 import Filter from '../Filter/Filter'
 import { GlobalContext } from '../../context/GlobalStateContext'
+import { db } from '../../service/firebase'
+import { getDocs, collection, query, where } from 'firebase/firestore'
+import { useParams } from 'react-router-dom'
 const ItemListContainer = (props) => {
+  const {category} = useParams()
   const {productList, setProductList} = useContext(GlobalContext)
+  const getData = async () =>{
+    const col = collection(db, 'products')
+    try {
+      const data = category === undefined ? await getDocs(col) : await getDocs(query(col, where('categoria', '==', category)))
+      const res = data.docs.map(doc => doc = {id: doc.id, ...doc.data()} )
+      setProductList(res)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
-  useEffect(() => {
-    fetch('https://sheet.best/api/sheets/35ceb9bc-cc56-4031-8514-e3927c7e99ae')
-    .then(res => res.json())
-    .then(res => {
-      props.category == null ? setProductList(res) : setProductList(res.filter(e => e.categoria === props.category))
-    })
-    .catch(err => console.log(err))
+  useEffect( () => {
+    setProductList([])
+    getData()
     return () => {
     }
-  }, [props.category])
+  }, [category])
 
   return (
     <>

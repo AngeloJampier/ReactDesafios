@@ -1,36 +1,46 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import { GlobalContext } from '../../context/GlobalStateContext'
 import ItemDetail from '../ItemDetail/ItemDetail'
+import { db } from '../../service/firebase'
+import { doc, getDoc } from 'firebase/firestore'
 
 const itemDetailContainer = {
 
   display: 'flex',
   justifyContent: 'center',
+  height: '100%'
 
 }
 
 
 const ItemDetailContainer = (props) => {
   
-  const {productList} = useContext(GlobalContext)
+  const {currentItem, setCurrentItem} = useContext(GlobalContext)
   let {id} = useParams()
-  
+  const getItem = async () => {
+    setCurrentItem(null)
+    const item = doc(db, 'products', id)
+    getDoc(item).then( snapshot => {
+      if(snapshot.exists()){
+        setCurrentItem({id: snapshot.id, ...snapshot.data()})
+      }
+    })
+  }
+
+  useEffect(() => {
+    getItem()
+    return () => {
+
+    }
+  }, [])
   
   return (
     <div className='itemDetailContainer' style={itemDetailContainer}>
-    {productList != null ? (
-       productList.filter(e => e.id === id).map(e => (
+   
          <ItemDetail
-            key = {e.id}
-            item = {e}
-            />
-          ))
-        ):(
-          <ItemDetail
-          item = {null}
-          />
-        )}
+      currentItem = {currentItem}
+      />
     </div>
   )
 }

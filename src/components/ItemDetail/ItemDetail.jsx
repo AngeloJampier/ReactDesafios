@@ -100,18 +100,18 @@ const priceFormat = price => {
   return price.length > 3 && !price.includes('.') ? price.slice(0, 1) + "," + price.slice(1, price.length) + ".00" : price + ".00"
 }
 
-const ItemDetail = ({ item, customStyle }) => {
+const ItemDetail = ({currentItem}) => {
   return (
     <div className='itemDetailContainer' style={itemDetailContainer}>
-    {item != null ? (
+   {currentItem != null ? (
  <div className='product' style={product}>
    <div className='div1' style={div1}>
-            <img src={item.image} style={img} />
+   <img src={currentItem.image} alt="" style={img} />
           </div>
           <div className='div2' style={div2}>
             <div style={details}>
               <p>Nuevo | {parseInt(Math.random() * 1000)} vendidos</p>
-              <h2>{item.productName}</h2>
+              <h2>{currentItem.productName}</h2>
               <div>
                 <FontAwesomeIcon icon={faStar} style={stars} />
                 <FontAwesomeIcon icon={faStar} style={stars} />
@@ -124,14 +124,14 @@ const ItemDetail = ({ item, customStyle }) => {
                 <div style={recommended}>
                   RECOMENDADO
                 </div>
-                en {item.categoria.slice(0, 1).toUpperCase() + item.categoria.slice(1, item.categoria.length)}
+                en {currentItem.categoria.slice(0, 1).toUpperCase() + currentItem.categoria.slice(1, currentItem.categoria.length)}
               </div>
               <div style={beforePrice}>
-              S/{priceFormat(parseInt(item.price * 1.15))}
+              S/{priceFormat(parseInt(currentItem.price * 1.15))}
               </div>
               <div style={priceContainer}>
                 <div style={price}>
-                  S/{priceFormat(item.price)}
+                S/{priceFormat(currentItem.price)}
                   <div style={green}>
                     15% OFF
                   </div>
@@ -139,7 +139,7 @@ const ItemDetail = ({ item, customStyle }) => {
                 <div style={interes}>
                   en
                   <div style={green}>
-                    10 x S/{priceFormat(parseInt((item.price / 9)))}, los intereses mas bajos!
+                  10 x S/{priceFormat(parseInt((currentItem.price / 9)))}, los intereses mas bajos!
                   </div>
                 </div>
               </div>
@@ -222,9 +222,9 @@ const ItemDetail = ({ item, customStyle }) => {
                 </div>
                 <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '15px' }}>
                   <div style={{ fontSize: '14px' }} >
-                    <b>Stock disponible ({item.stock} disponibles)</b>
+                  <b>Stock disponible ({currentItem.stock} disponibles)</b>
                   </div>
-                  <ItemCount product={item} className='itemCount' amount={item.stock}></ItemCount>
+                  <ItemCount product={currentItem} className='itemCount' amount={currentItem.stock}></ItemCount>
                 </div>
               </div>
             </div>

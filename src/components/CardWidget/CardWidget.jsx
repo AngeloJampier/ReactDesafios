@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import './CardWidget.css'
 import { GlobalContext } from '../../context/GlobalStateContext'
-import { textAlign } from '@mui/system'
 import { Link } from 'react-router-dom'
 
 const CardWidget = () => {

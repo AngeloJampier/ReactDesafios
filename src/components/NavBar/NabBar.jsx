@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -44,7 +44,7 @@ const NavBar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }} >
-          <Link onClick={() => setToCart(false)} to={'/'} style={{color: 'white', textDecoration: 'none'}}>La Tienda Pe'</Link>
+          <Link onClick={() => setToCart(false)} to={'/'} style={{color: 'white', textDecoration: 'none'}}>Drink House</Link>
           </Typography>
 
           <Box sx={{ flexGrow: 0 }} style={{marginRight: '15px'}}>
