@@ -23,11 +23,11 @@ const Item = ({product}) => {
                     </div>
                     <div style={{height: '20%'}}>
                         <Button
-                        variant = 'contained'
                         component = {Link}
                         to = {'/item/' + product.id}
                         className = 'detailButton'
                         product = {product}
+                        style = {{backgroundColor: 'black', color: 'white'}}
                         >
                         Detalles
                         </Button>

@@ -8,24 +8,26 @@ import { getDocs, collection, query, where } from 'firebase/firestore'
 import { useParams } from 'react-router-dom'
 const ItemListContainer = (props) => {
   const {category} = useParams()
-  const {productList, setProductList} = useContext(GlobalContext)
+  const {productList, setProductList, productName, minPrice, maxPrice} = useContext(GlobalContext)
   const getData = async () =>{
     const col = collection(db, 'products')
     try {
       const data = category === undefined ? await getDocs(col) : await getDocs(query(col, where('categoria', '==', category)))
       const res = data.docs.map(doc => doc = {id: doc.id, ...doc.data()} )
-      setProductList(res)
+      setProductList(res.filter(product => {
+        return product.productName.toLowerCase().includes(productName.toLowerCase()) && minPrice <= product.price && product.price <= maxPrice
+      }))
     } catch (error) {
       console.log(error)
     }
   }
 
   useEffect( () => {
-    setProductList([])
+    setProductList(null)
     getData()
     return () => {
     }
-  }, [category])
+  }, [category, productName, minPrice, maxPrice])
 
   return (
     <>

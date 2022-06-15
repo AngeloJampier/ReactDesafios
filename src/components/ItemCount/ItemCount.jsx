@@ -20,6 +20,7 @@ const ItemCount = ({product, amount}) => {
             id: product.id,
             name: product.productName,
             img: product.image,
+            individualPrice: product.price,
             price: product.price * stock,
             amount: stock,
             description: product.description
@@ -47,6 +48,7 @@ const ItemCount = ({product, amount}) => {
                 className='addButton'
                 variant='contained'
                 size='large'
+                style = {{backgroundColor: 'black'}}
                 >
                 Add to cart
                 </Button>
@@ -64,7 +66,7 @@ const ItemCount = ({product, amount}) => {
                 variant='contained'
                 size='large'
                 color='info'
-                style={{fontSize: '12px',height: 'auto', textAlign: 'center', margin: '8px'}}
+                style={{fontSize: '12px',height: 'auto', textAlign: 'center', margin: '8px', backgroundColor: 'black'}}
                 >
                 Seguir comprando
                 </Button>
@@ -79,7 +81,7 @@ const ItemCount = ({product, amount}) => {
                 variant='contained'
                 size='large'
                 color='info'
-                style={{fontSize: '12px',height: 'auto', textAlign: 'center', margin: '8px'}}
+                style={{fontSize: '12px',height: 'auto', textAlign: 'center', margin: '8px', backgroundColor: 'black'}}
                 >
                 Terminar la compra
                 </Button>

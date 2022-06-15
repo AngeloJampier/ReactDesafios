@@ -5,13 +5,7 @@ import ItemDetail from '../ItemDetail/ItemDetail'
 import { db } from '../../service/firebase'
 import { doc, getDoc } from 'firebase/firestore'
 
-const itemDetailContainer = {
 
-  display: 'flex',
-  justifyContent: 'center',
-  height: '100%'
-
-}
 
 
 const ItemDetailContainer = (props) => {
@@ -36,7 +30,7 @@ const ItemDetailContainer = (props) => {
   }, [])
   
   return (
-    <div className='itemDetailContainer' style={itemDetailContainer}>
+    <div className='itemDetailContainer' >
    
          <ItemDetail
       currentItem = {currentItem}

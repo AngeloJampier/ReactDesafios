@@ -40,11 +40,11 @@ const NavBar = () => {
   };
 
   return (
-    <AppBar position="fixed">
-      <Container maxWidth="xl">
+    <AppBar position="fixed" style={{backgroundColor: 'transparent', boxShadow: 'none', padding: '0 20px'}}>
+    <Container style={{backgroundColor: '#121212', borderBottomLeftRadius: '25px', borderBottomRightRadius: '25px', maxWidth: '100%'}}>
         <Toolbar disableGutters>
           <Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }} >
-          <Link onClick={() => setToCart(false)} to={'/'} style={{color: 'white', textDecoration: 'none'}}>Drink House</Link>
+          <Link onClick={() => setToCart(false)} to={'/'} style={{color: 'white', textDecoration: 'none'}}>Tecno Jordi</Link>
           </Typography>
 
           <Box sx={{ flexGrow: 0 }} style={{marginRight: '15px'}}>
@@ -87,7 +87,7 @@ const NavBar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="./static/images/avatar/2.jpg" />
+              <Avatar alt="Remy Sharp" src="" />
               </IconButton>
             </Tooltip>
             <Menu

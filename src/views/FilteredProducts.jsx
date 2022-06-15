@@ -5,7 +5,8 @@ import ItemListContainer from '../components/ItemListContainer/ItemListContainer
 const filteredProductsContainer = {
     height: '100vh',
     textAlign: 'center',
-    backgroundColor: '#f8f7f5'
+    backgroundColor: '#f8f7f5',
+    marginTop: '60px'
 }
 
 const FilteredProducts = (props) => {

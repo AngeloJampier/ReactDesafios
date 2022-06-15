@@ -2,7 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faStarHalf, faTruckFast, faBolt, faLocationDot, faShop, faArrowRotateLeft, faShieldHalved, faTrophy } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import ItemCount from '../ItemCount/ItemCount'
-import { Link } from '@mui/material'
+import { Box, CircularProgress, Link } from '@mui/material'
+
 const itemDetailContainer = {
   width: '100%',
   display: 'flex',
@@ -15,7 +16,7 @@ const img = {
 }
 const product = {
   boxSizing: 'border-box',
-  height: 'calc(100vh - 68px)',
+  height: '100%',
   backgroundColor: '#fff',
   display: 'flex',
   width: '80%',
@@ -232,7 +233,11 @@ const ItemDetail = ({currentItem}) => {
         
         </div>
       ):(
-        <h1>Cargando...</h1>
+        <div className='itemDetailContainer' style={itemDetailContainer}>
+        <Box sx={{ display: 'flex', height: '100vh', overflow: 'hidden', justifyContent: 'center', alignItems: 'center'}}>
+            <CircularProgress />
+        </Box>
+      </div>
       )}
       
     </div>
