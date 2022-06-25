@@ -5,6 +5,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    backdrop-filter: blur(10px);
+    background: hsla(0,0%,100%,.38);
+    border-radius: 20px;
+    color: white;
 }
 
 .formContainer .form{
@@ -16,6 +20,8 @@
 
 .formContainer .formItem{
     margin: 20px 0;
+    border-radius: 5px;
+    background-color: white;
 }
 
 .formContainer .btnSend{

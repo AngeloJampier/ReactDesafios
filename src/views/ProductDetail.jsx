@@ -4,7 +4,6 @@ import ItemDetailContainer from '../components/ItemDetailContainer/ItemDetailCon
 const productDetailContainer = {
   height: 'calc(100vh - 60px)',
     textAlign: 'center',
-    backgroundColor: '#f8f7f5',
     marginTop: '60px'
 }
 

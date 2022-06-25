@@ -10,8 +10,8 @@ const priceFormat = price => {
 const Item = ({product}) => {
     return (
         <>
-            <div className='item'>
-                <div className='product' style={{display: 'flex', flexDirection: 'column', height: '100%'}}>
+           <div className='itemContainer'>
+                <div className='product'>
                     <div style={{height: '80%'}}>
                         <img src={product.image} alt="" />
                         <div>

@@ -12,7 +12,7 @@ const Cart = () => {
         <div className='cartList'>
           {cartProducts.length > 0 ? cartProducts.map((item, index) => (
             <div key={`container-${item.id}`} className='cartItem'>
-              <IconButton key={`button-${item.id}`} style={{margin: '20px'}} aria-label="delete" onClick={() => removeItem(item.id)}>
+                 <IconButton key={`button-${item.id}`} style={{margin: '20px', color: 'black'}} aria-label="delete" onClick={() => removeItem(item.id)}>
                 <DeleteIcon/>
               </IconButton>
               <div className='cartItemImg'>
