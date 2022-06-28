@@ -2,5 +2,16 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+}
+
+@media (max-width: 800px){
+    .itemDetailContainer{
+        height: auto;
+    }
+}
+
+@media (max-height: 900px){
+    .itemDetailContainer{
+        height: auto;
+    }
 } 

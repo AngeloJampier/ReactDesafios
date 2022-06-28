@@ -5,6 +5,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url('https://i.ibb.co/Ch3Th6H/i-Stock-1156882942.jpg') repeat 0 0;
+  -webkit-animation: bg-scrolling-reverse 10s infinite; 
+          animation: bg-scrolling-reverse 10s infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+@-webkit-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 591px 591px;
+  }
+}
+
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 591px 591px;
+  }
 }
 
 code {

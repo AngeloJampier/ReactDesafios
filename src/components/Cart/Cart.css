@@ -84,4 +84,50 @@
     width: 80%;
     display: flex;
     justify-content: space-between;
+}
+
+@media (max-width: 1600px){
+    .cartContainer a,
+    .cartContainer button{
+        font-size: 12px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 1400px){
+    .cartContainer h1{
+        font-size: 22px;
+    }
+
+    .cartContainer .cartList{
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 1200px){
+    .cartContainer p{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1000px){
+    .cartContainer .cartItem button{
+        margin: 0 !important;
+    }
+}
+
+@media (max-width: 850px){
+    .cartViewFlexContainer{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 500px){
+    .cartContainer .buttonsContainer{
+        flex-direction: column;
+    }
+
+    .cartContainer .buttonsContainer h1{
+        text-align: center !important;
+    }
 } 

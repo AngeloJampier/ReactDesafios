@@ -70,10 +70,10 @@ const ItemDetail = ({ currentItem }) => {
               </div>
             </div>
 
-            <div>
+            <div className='details2'>
               <div className="counterContainer">
                 <div style={{ width: "100%", display: "flex" }}>
-                  <div style={{ width: "50%" }}>
+                <div style={{ width: '50%', marginRight: '15px' }}>
                     <div style={{ display: "flex" }}>
                       <FontAwesomeIcon
                         icon={faTruckFast}
@@ -146,15 +146,7 @@ const ItemDetail = ({ currentItem }) => {
                     </div>
                   </div>
                 </div>
-                <div
-                  style={{
-                    width: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    padding: "15px",
-                  }}
-                >
+                <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                   <div style={{ fontSize: "14px" }}>
                     <b>Stock disponible ({currentItem.stock} disponibles)</b>
                   </div>

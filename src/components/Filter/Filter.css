@@ -54,4 +54,35 @@
 
 .filterContainer li div{
     color: white;
+}
+
+@media (max-width: 1200px){
+    .filterContainer{
+        width: auto;
+    }
+
+    .filterContainer .filters{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 30px;
+    }
+
+    .filterContainer .select,
+    .filterContainer .formControl{
+        margin-top: 0px;
+    }
+
+    .filterContainer .aditionalFiltersContainer{
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 800px){
+    .filterContainer{
+        align-items: center;
+    }
+
+    .filterContainer .filters{
+        grid-template-columns: repeat(1, 1fr);
+    }
 } 

@@ -31,7 +31,6 @@
 
 .itemContainer img{
     width: 95%;
-    max-height: 250px;
 }
 .itemContainer:hover{
     box-shadow: rgba(0, 0, 0, 0.6) 0px 3px 8px;
@@ -51,4 +50,16 @@
     color: white;
     font-size: 15px;
     border-radius: 5px;
+}
+
+@media (max-width: 650px){
+    .itemContainer{
+        width: 65%;
+    }
+}
+
+@media (max-width: 500px){
+    .itemContainer{
+        width: 90%;
+    }
 }

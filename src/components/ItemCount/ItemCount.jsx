@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { GlobalContext } from '../../context/GlobalStateContext'
 import './ItemCount.css'
 const ItemCount = ({product, amount}) => {
-    const {addToCart, toCart, setToCart} = useContext(GlobalContext)
+    const {addToCart, toCart, setToCart, setInitialAmount, initialAmount} = useContext(GlobalContext)
     const [stock, setStock] = useState(1)
     const [cartProduct, setCartProduct] = useState({
         id: product.id,
@@ -44,7 +44,11 @@ const ItemCount = ({product, amount}) => {
                     <button className='countButton' onClick={increaseAmount}>+</button>
                 </div>
                 <Button
-                onClick={() => setToCart(!toCart)}
+                onClick={() => {
+                    addToCart(cartProduct)
+                    setToCart(!toCart)
+                    setInitialAmount(initialAmount+stock)
+                }}
                 className='addButton'
                 variant='contained'
                 size='large'
@@ -56,10 +60,7 @@ const ItemCount = ({product, amount}) => {
            ) : (
             <div className='generalContainer'>
                 <Button
-                  onClick={() => {
-                    addToCart(cartProduct)
-                    setToCart(!toCart)
-                }}
+                  onClick={() => setToCart(!toCart)}
                 className='addButton'
                 component={Link}
                 to={'/'}
@@ -71,10 +72,7 @@ const ItemCount = ({product, amount}) => {
                 Seguir comprando
                 </Button>
                 <Button
-                onClick={() => {
-                    addToCart(cartProduct)
-                    setToCart(!toCart)
-                }}
+                 onClick={() => setToCart(!toCart)}
                 className='addButton'
                 component={Link}
                 to={'/cart'}

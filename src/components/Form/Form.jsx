@@ -8,9 +8,9 @@ import Swal from "sweetalert2";
 import emailjs from 'emailjs-com'
 
 const Form = () => {
-  emailjs.init("uf1ocX0CxNZspgi0V")
+  emailjs.init("7kSQB0hQCdvxHkLj2")
 
-  const { cartProducts, setCartProducts, totalPrice, setTotalPrice } = useContext(GlobalContext)
+  const { cartProducts, setCartProducts, totalPrice, setTotalPrice, setInitialAmount } = useContext(GlobalContext)
   const [phoneStatus, setPhoneStatus] = useState(false)
   const [emailStatus, setEmailStatus] = useState(false)
   const [nameStatus, setNameStatus] = useState(false)
@@ -37,22 +37,24 @@ const Form = () => {
       [name]: value
     }
   });
-
   if (e.target.name === 'phone') {
     setPhoneStatus(e.target.value.length < 1 ? false : true)
     setFormStatus(phoneStatus && emailStatus && nameStatus && lastNameStatus)
-  } else if (e.target.name === 'name') {
+  }
+  if (e.target.name === 'name') {
     setNameStatus(e.target.value.length < 1 ? false : true)
     setFormStatus(phoneStatus && emailStatus && nameStatus && lastNameStatus)
-  } else if (e.target.name === 'lastName') {
+  }
+  if (e.target.name === 'lastName') {
     setLastNameStatus(e.target.value.length < 1 ? false : true)
     setFormStatus(phoneStatus && emailStatus && nameStatus && lastNameStatus)
-  } else if (e.target.name === 'email') {
+  }
+  if (e.target.name === 'email') {
     setEmailStatus(e.target.value.length < 1 ? false : true)
     setFormStatus(phoneStatus && emailStatus && nameStatus && lastNameStatus)
     }
   }
-  };
+  
 
   const sendData = async () => {
     try {
@@ -66,14 +68,12 @@ const Form = () => {
             'success'
             )
     
-            let list =  ''
-            for(let i = 0; i<formValue.items.length; i++){
-              list += `${i+1}.- ${formValue.items[i].name} | ${formValue.items[i].description} | x${formValue.items[i].amount}UN. | Sub-total: S/${formValue.items[i].price}
-              `
-      }
-      emailjs.send('service_4gfz4ub', 'template_qnjdn25', {...formValue, list})
+            let list =  {}
+        for(let i = 0; i<formValue.items.length; i++) list[`producto${i}`] = `${i+1}.- ${formValue.items[i].name} | ${formValue.items[i].description} | x${formValue.items[i].amount}UN. | Sub-total: S/${formValue.items[i].price}`
+      emailjs.send('service_sbwd6zo', 'template_sxqkapx', {...formValue, ...list, order: order.id})
       .then(function (response) {
         console.log('SUCCESS!', response.status, response.text)
+        console.log({...formValue, ...list})
       }, function (error) {
         console.log('FAILED...', error)
       })
@@ -87,15 +87,16 @@ const Form = () => {
         email: "",
         phone: "",
       },
-      items: cartProducts,
-      date: new Date().getDate() + '/' + new Date().getMonth() + '/' + new Date().getFullYear(),
-      totalPrice: totalPrice
+      items: "",
+      date: "",
+      totalPrice: ""
     })
     setNameStatus(false)
     setLastNameStatus(false)
     setPhoneStatus(false)
     setEmailStatus(false)
     setFormStatus(false)
+    setInitialAmount(0)
   } else {
       Swal.fire({
         icon: "error",
@@ -111,7 +112,7 @@ const Form = () => {
       text: 'Al parecer ocurrió un error!'
     })
   };
-
+  }
 useEffect(() => { }, [formStatus])
 
   return (

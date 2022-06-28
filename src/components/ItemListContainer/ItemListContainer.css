@@ -16,9 +16,14 @@
     backdrop-filter: blur(10px);
 }
 
-.itemListContainer img{
-    min-width: 240px;
-    max-width: 240px;
-    min-height: 240px;
-    max-height: 240px;
+@media (max-width: 1200px){
+    .itemListContainer{
+        flex-direction: column;
+    }
+
+    .itemListGeneralContainer{
+        width: fit-content;
+        height: auto;
+        overflow-y: initial;
+    }
 }

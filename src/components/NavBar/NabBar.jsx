@@ -19,16 +19,7 @@ const NavBar = () => {
     <Container style={{backgroundColor: '#331279', borderBottomLeftRadius: '25px', borderBottomRightRadius: '25px', maxWidth: '100%'}}>
         <Toolbar disableGutters style={{justifyContent: 'space-between'}}>
           <div></div>
-          <Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }} >
-          <Link onClick={() => setToCart(false)} to={'/'} style={{color: 'white', textDecoration: 'none'}}>Tecno Jordi</Link>
-          </Typography>
-
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-          >
+          <Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: { md: 'flex' } }} >
              <Link onClick={() => setToCart(false)} to={'/'} style={{color: 'white', textDecoration: 'none'}}>Tecno Jordi</Link>
           </Typography>
 
@@ -38,6 +29,9 @@ const NavBar = () => {
               <Avatar alt="Remy Sharp" src="" />
               </IconButton>
             </Tooltip>
+            <Box>
+              <CardWidget/>
+            </Box>
           </Box>
         </Toolbar>
       </Container>
