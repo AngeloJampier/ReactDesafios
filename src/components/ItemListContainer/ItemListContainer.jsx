@@ -3,7 +3,7 @@ import React, { useEffect, useContext } from "react";
 import ItemList from "../ItemList/ItemList";
 import Filter from "../Filter/Filter";
 import { GlobalContext } from "../../context/GlobalStateContext";
-import { db } from "../../service/firebase";
+import { db } from "../../service/Firebase";
 import { getDocs, collection, query, where } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 const ItemListContainer = (props) => {
