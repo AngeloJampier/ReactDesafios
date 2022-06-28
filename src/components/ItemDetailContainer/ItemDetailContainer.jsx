@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalStateContext";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { db } from "../../service/Firebase";
+import { db } from "../../service/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import "./ItemDetailContainer.css";
 
